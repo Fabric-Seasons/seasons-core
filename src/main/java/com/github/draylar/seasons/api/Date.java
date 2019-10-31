@@ -49,4 +49,9 @@ public class Date {
         this.year = tag.getInt("year");
         this.season = Season.valueOf(tag.getString("season"));
     }
+
+    @Override
+    public String toString() {
+        return String.format("Year %d, %d%s day of %s.", year, day, SeasonUtils.getIntSuffix(day), season.getFormattedName());
+    }
 }
