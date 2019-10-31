@@ -42,7 +42,7 @@ It gives you access to the previous date as well as the new, or current, date.
 
 ```java
 DateIncrementCallback.EVENT.register((serverWorld, previousDate, newDate) -> {
-		LOGGER.info("[Seasons: Core] [DEV ENV]: " + SeasonUtils.getFormattedDateUpdateMessage(newDate));
+	LOGGER.info("[Seasons: Core] [DEV ENV]: " + SeasonUtils.getFormattedDateUpdateMessage(newDate));
 });
 ```
 
