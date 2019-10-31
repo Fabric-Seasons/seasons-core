@@ -4,6 +4,13 @@ Core API for the Seasons mod suite. Includes utilities for monitoring the day, y
 
 [![](https://jitpack.io/v/Fabric-Seasons/seasons-core.svg)](https://jitpack.io/#Fabric-Seasons/seasons-core)
 
+## What?
+  Seasons: Core is an API library which keeps track of the day, year, and season in your world. It also provides hooks for developers to manipulate and react to the date. As a user, you'll most likely only see it working in the background in other mods: it offers no content on its own aside from a command used to check the current date:
+
+```
+/season poll
+```
+
 ## Downloading as a Developer
 Including `Seasons: Core` in your project is easy. Add jitpack as a repository, and point to this project in your dependencies block.
 ```gradle
