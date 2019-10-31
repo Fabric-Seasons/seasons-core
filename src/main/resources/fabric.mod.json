@@ -1,11 +1,11 @@
 
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "seasons-core",
   "version": "${version}",
 
-  "name": "Fabric Example Mod",
-  "description": "Draylar's Fabric Example Mod!",
+  "name": "Seasons: Core",
+  "description": "Core season API for the Seasons mod series.",
   "authors": [
     "Draylar"
   ],
@@ -15,23 +15,20 @@
   },
 
   "license": "GPLv3",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/seasonscore/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.draylar.modid.ExampleMod"
+      "com.github.draylar.seasons.SeasonsCore"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "seasonscore.mixins.json"
   ],
 
   "requires": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"
-  },
-  "suggests": {
-    "flamingo": "*"
   }
 }

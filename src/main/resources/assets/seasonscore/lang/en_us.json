@@ -1,0 +1,11 @@
+{
+  "seasonscore.title": "Seasons: Core",
+
+  "seasonscore.spring": "Spring",
+  "seasonscore.summer": "Summer",
+  "seasonscore.fall": "Fall",
+  "seasonscore.winter": "Winter",
+
+  "seasonscore.date_status": "It is the %d%s day of %s in the %d%s year.",
+  "seasonscore.date_update": "It is now the %d%s day of %s in the %d%s year."
+}
