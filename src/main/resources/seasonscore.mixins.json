@@ -3,7 +3,8 @@
   "package": "com.github.draylar.seasons.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ServerWorldMixin"
+    "ServerWorldMixin",
+    "PlayerManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

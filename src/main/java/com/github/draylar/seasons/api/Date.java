@@ -1,5 +1,7 @@
 package com.github.draylar.seasons.api;
 
+import net.minecraft.nbt.CompoundTag;
+
 /**
  * Represents a Date in Minecraft time.
  * By default, a season lasts 15 days, which ends up as exactly 5 hours of real life time.
@@ -16,6 +18,10 @@ public class Date {
         this.season = season;
     }
 
+    public Date(CompoundTag tag) {
+        fromTag(tag);
+    }
+
     int getDay() {
         return day;
     }
@@ -26,5 +32,21 @@ public class Date {
 
     Season getSeason() {
         return season;
+    }
+
+    public CompoundTag toTag() {
+        CompoundTag tag = new CompoundTag();
+
+        tag.putInt("day", day);
+        tag.putInt("year", year);
+        tag.putString("season", season.toString());
+
+        return tag;
+    }
+
+    public void fromTag(CompoundTag tag) {
+        this.day = tag.getInt("day");
+        this.year = tag.getInt("year");
+        this.season = Season.valueOf(tag.getString("season"));
     }
 }

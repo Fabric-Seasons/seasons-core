@@ -3,12 +3,18 @@ package com.github.draylar.seasons.mixin;
 import com.github.draylar.seasons.SeasonsCore;
 import com.github.draylar.seasons.api.Date;
 import com.github.draylar.seasons.api.Season;
+import com.github.draylar.seasons.api.SeasonManager;
 import com.github.draylar.seasons.event.DateIncrementCallback;
 import com.github.draylar.seasons.impl.SeasonProvider;
 import com.github.draylar.seasons.impl.SeasonState;
+import io.netty.buffer.Unpooled;
+import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.minecraft.client.network.packet.CustomPayloadS2CPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.WorldGenerationProgressListener;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.world.PersistentStateManager;
 import net.minecraft.world.World;
@@ -74,6 +80,18 @@ public abstract class ServerWorldMixin extends World implements SeasonProvider {
     private void saveSeasonState() {
         seasonState.markDirty();
         getPersistentStateManager().save();
+        updateClients();
+    }
+
+    @Unique
+    private void updateClients() {
+        ServerWorld serverWorld = (ServerWorld) (Object) this;
+
+        PacketByteBuf byteBuf = new PacketByteBuf(Unpooled.buffer());
+        byteBuf.writeCompoundTag(SeasonManager.getDate(serverWorld).toTag());
+        CustomPayloadS2CPacket packet = new CustomPayloadS2CPacket(SeasonsCore.DATE_UPDATE_PACKET, byteBuf);
+
+        serverWorld.getPlayers().forEach(player -> ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, packet));
     }
 
     @Unique
