@@ -1,5 +1,5 @@
 # Seasons: Core
-
+<img src="https://github.com/Fabric-Seasons/seasons-core/blob/master/src/main/resources/assets/seasonscore/icon.png" width="100" height="100">
 Core API for the Seasons mod suite. Includes utilities for monitoring the day, year, and season.
 
 [![](https://jitpack.io/v/Fabric-Seasons/seasons-core.svg)](https://jitpack.io/#Fabric-Seasons/seasons-core)
