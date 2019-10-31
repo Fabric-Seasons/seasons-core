@@ -6,13 +6,11 @@ import com.github.draylar.seasons.api.SeasonUtils;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.LiteralText;
-import net.minecraft.util.Formatting;
+import net.minecraft.text.TranslatableText;
 
 public class SeasonCommand {
 
@@ -59,13 +57,8 @@ public class SeasonCommand {
                             ServerWorld serverWorld = context.getSource().getWorld();
                             ServerPlayerEntity player = context.getSource().getPlayer();
 
-                            String updateMessage = SeasonUtils.getFormattedDateStatusMessage(SeasonManager.getDate(serverWorld));
-                            String prefix = String.format("[%s] ", I18n.translate("seasonscore.title"));
-
-                            player.sendMessage(new LiteralText(
-                                    new LiteralText(prefix).formatted(Formatting.GOLD).asFormattedString()
-                                            + new LiteralText(updateMessage).asFormattedString()
-                            ));
+                            TranslatableText updateMessage = SeasonUtils.getFormattedDateStatusMessage(SeasonManager.getDate(serverWorld));
+                            player.sendMessage(updateMessage);
 
                             return 1;
                         })

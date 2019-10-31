@@ -1,6 +1,6 @@
 package com.github.draylar.seasons.api;
 
-import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.TranslatableText;
 
 public class SeasonUtils {
 
@@ -8,8 +8,8 @@ public class SeasonUtils {
         // NO-OP
     }
 
-    public static String getFormattedDateStatusMessage(Date date) {
-        return I18n.translate("seasonscore.date_status",
+    public static TranslatableText getFormattedDateStatusMessage(Date date) {
+        return new TranslatableText("seasonscore.date_status",
                 date.getDay(),
                 SeasonUtils.getIntSuffix(date.getDay()),
                 date.getSeason().getFormattedName(),
@@ -17,8 +17,8 @@ public class SeasonUtils {
                 SeasonUtils.getIntSuffix(date.getYear() + 1));
     }
 
-    public static String getFormattedDateUpdateMessage(Date date) {
-        return I18n.translate("seasonscore.date_update",
+    public static TranslatableText getFormattedDateUpdateMessage(Date date) {
+        return new TranslatableText("seasonscore.date_update",
                 date.getDay(),
                 SeasonUtils.getIntSuffix(date.getDay()),
                 date.getSeason().getFormattedName(),

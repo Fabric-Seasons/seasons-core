@@ -1,6 +1,6 @@
 package com.github.draylar.seasons.api;
 
-import net.minecraft.client.resource.language.I18n;
+import net.minecraft.text.TranslatableText;
 
 /**
  * Represents one of the 4 standard seasons (Spring, Summer, Fall, and Winter).
@@ -13,10 +13,10 @@ public enum  Season {
     FALL("seasonscore.fall"),
     WINTER("seasonscore.winter");
 
-    private String translatedName;
+    private String translationKey;
 
     Season(String translationKey) {
-        this.translatedName = translationKey;
+        this.translationKey = translationKey;
     }
 
     public static Season next(Season season) {
@@ -34,7 +34,7 @@ public enum  Season {
         return season;
     }
 
-    public String getFormattedName() {
-        return I18n.translate(translatedName);
+    public TranslatableText getFormattedName() {
+        return new TranslatableText(translationKey);
     }
 }
