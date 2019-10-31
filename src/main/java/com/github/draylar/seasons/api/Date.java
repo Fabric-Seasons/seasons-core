@@ -22,15 +22,15 @@ public class Date {
         fromTag(tag);
     }
 
-    int getDay() {
+    public int getDay() {
         return day;
     }
 
-    int getYear() {
+    public int getYear() {
         return year;
     }
 
-    Season getSeason() {
+    public Season getSeason() {
         return season;
     }
 
