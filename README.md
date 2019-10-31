@@ -11,6 +11,8 @@ Core API for the Seasons mod suite. Includes utilities for monitoring the day, y
 /season poll
 ```
 
+By default, a season lasts **15** days, and there are 4 seasons per year. This means each season is exactly 5 hours of real life time. This exact value is still up for change, but it's fully configurable in the `config/seasons-core.json`file.
+
 ## Downloading as a Developer
 Including `Seasons: Core` in your project is easy. Add jitpack as a repository, and point to this project in your dependencies block.
 ```gradle
